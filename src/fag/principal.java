@@ -38,7 +38,13 @@ public class principal {
 					System.out.println("Senha Incorreta");
 					continue;
 				}
+				if(login.equals(loginInput) && senha.equals(SenhaImput)) {
+					System.out.println("BEM VINDO!!");
+					break;
+				}
+				
 		}
+		
 		
 		}
 		

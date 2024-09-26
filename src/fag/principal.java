@@ -39,7 +39,17 @@ public class principal {
 					continue;
 				}
 				if(login.equals(loginInput) && senha.equals(SenhaImput)) {
-					System.out.println("BEM VINDO!!");
+					System.out.println("BEM VINDO!!\n");
+					
+					System.out.println("1)Adicionar Funcionario\n2)Remover o Funcionário\n3)Ver Venda Por funcionario.");
+					
+					
+					
+					
+					
+					
+					
+					
 					break;
 				}
 				

@@ -6,13 +6,11 @@ public class Cadastrofuncionarios {
 	private String nome;
 	private Integer ID;
 	private String Cargo;
-	private Integer Totaldevenda;
 	
     public Cadastrofuncionarios() {
         this.nome = "";
         this.ID = null;
         this.Cargo = "";
-        this.Totaldevenda = null;
     }
 	
 	public Cadastrofuncionarios(String nome, Integer iD, String cargo, Integer totaldevenda) {
@@ -46,18 +44,10 @@ public class Cadastrofuncionarios {
 		Cargo = cargo;
 	}
 
-	public Integer getTotaldevenda() {
-		return Totaldevenda;
-	}
-
-	public void setTotaldevenda(Integer totaldevenda) {
-		Totaldevenda = totaldevenda;
-	}
-
 	@Override
 	public String toString() {
 		return "Cadastrofuncionarios [nome=" + nome + ", ID=" + ID + ", Cargo=" + Cargo + ", Totaldevenda="
-				+ Totaldevenda + "]";
+				 + "]";
 	}
 	
 

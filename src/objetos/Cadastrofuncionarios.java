@@ -1,18 +1,25 @@
 package objetos;
+import fag.principal;
 
 public class Cadastrofuncionarios {
 	
 	private String nome;
-	private String ID;
+	private Integer ID;
 	private String Cargo;
 	private Integer Totaldevenda;
 	
-	public Cadastrofuncionarios(String nome, String iD, String cargo, Integer totaldevenda) {
+    public Cadastrofuncionarios() {
+        this.nome = "";
+        this.ID = null;
+        this.Cargo = "";
+        this.Totaldevenda = null;
+    }
+	
+	public Cadastrofuncionarios(String nome, Integer iD, String cargo, Integer totaldevenda) {
 		super();
 		this.nome = nome;
-		ID = iD;
-		Cargo = cargo;
-		Totaldevenda = totaldevenda;
+		this.ID = iD;
+		this.Cargo = cargo;
 	}
 
 	public String getNome() {
@@ -23,11 +30,11 @@ public class Cadastrofuncionarios {
 		this.nome = nome;
 	}
 
-	public String getID() {
+	public Integer getID() {
 		return ID;
 	}
 
-	public void setID(String iD) {
+	public void setID(Integer iD) {
 		ID = iD;
 	}
 
@@ -53,6 +60,6 @@ public class Cadastrofuncionarios {
 				+ Totaldevenda + "]";
 	}
 	
-	
+
 
 }

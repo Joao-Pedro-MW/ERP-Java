@@ -10,7 +10,7 @@ public class Garcom {
 	private Cadastrofuncionarios funcionario;
 	private Float venda;
 	
-	public String setNome() {
+	public void setNome() {
 		this.funcionario.setNome(null);
 	}
 	

@@ -40,18 +40,31 @@ public class principal {
 				}
 				if(login.equals(loginInput) && senha.equals(SenhaImput)) {
 					System.out.println("BEM VINDO!!\n");
+					escolhausuario = 0;
 					
+					while(true){
 					System.out.println("1)Adicionar Funcionario\n2)Remover o Funcionário\n3)Ver Venda Por funcionario.");
+					escolhausuario = scan.nextInt();
 					
-					
-					
-					
-					
-					
-					
-					
-					break;
-				}
+					if(escolhausuario == 1) 
+					{
+						
+						escolhausuario = 0;
+						System.out.println("Quantos funcionários você quer adicionar?");
+						escolhausuario = scan.next();
+						
+						
+						
+					}
+						if(escolhausuario == 2) 
+						{
+						
+						}	
+							if(escolhausuario == 3) 
+							{
+							
+							}	
+					}
 				
 		}
 		
@@ -59,6 +72,7 @@ public class principal {
 		}
 		
 		
+	}
 	}
 
 }

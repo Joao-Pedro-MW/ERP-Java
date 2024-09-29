@@ -1,7 +1,7 @@
 package objetos;
 
 import objetos.Mesa;
-import objetos.Pedidos;
+import objetos.Pedido;
 import objetos.Funcionario;
 import fag.principal_old;
 

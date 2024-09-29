@@ -12,13 +12,41 @@ public class Principal {
 		List<Mesa> listaMesas = new ArrayList<Mesa>();
 		List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 		
-		System.out.println("1) Entrar Como Administrador\n"
-				         + "2) Entrar como funcionário\n");
+		System.out.println("Olá, oque deseja fazer:");
+		System.out.println("[1] Gerenciar funcionários"
+						 + "[2] Gerenciar mesas"
+						 + "[3] Gerenciar cardapio"
+						 + "[4] Gerenciar pedidos"
+						 + "[5] Extrair relatórios");
+		Integer opcaoMenu = scan.nextInt();
 		
-		int escolhausuario = scan.nextInt();
-		
-		
+		switch (opcaoMenu) {
+			case 1:
+				// Gerenciar funcionários
+				text;
+				break;
+			case 2:
+				// Gerenciar mesas
+				text;
+				break;
+			case 3:
+				// Gerenciar cardapio
+				text;
+				break;
+			case 4:
+				// Gerenciar pedidos
+				text;
+				break;
+			case 5:
+				// Extrair relatórios
+				text;
+				break;
+			default:
+				System.out.println("Ops, esta opção não existe!");
 		}
+		}
+		
+		
 		
 		// Gestão funcionários
 		public static Funcionario CadastraCarcom(String nome, Integer id) {

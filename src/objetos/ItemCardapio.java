@@ -11,6 +11,8 @@ public class ItemCardapio {
 		ArrayList<Cardapio> cardapio = new ArrayList<Cardapio>();
 		ArrayList<CardapioBebidas> cardapiob = new ArrayList<CardapioBebidas>();
 
+			
+		// CLASSE NÃO PODE TER MAIN, POIS NÃO É A PRINCIPAL
 		while (controleFluxo) {
 			System.out.println("Escolha uma opção que deseja:\n [1]Cadastrar pratos \n [2]Cadastrar bebidas \n [3]Remover item \n [4]Atualizar disponibilidade");
 			int cadinput = sc.nextInt();

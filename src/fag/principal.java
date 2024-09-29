@@ -24,7 +24,7 @@ public class principal {
 			String SenhaImput = "";
 			String login="admadm";
 			String senha="123123";
-			
+			teste
 			
 			System.out.println("Faça o Login\n\nUsuário:\nSenha:\n");
 			loginInput = scan.next();

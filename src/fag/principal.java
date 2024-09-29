@@ -13,6 +13,7 @@ public class Principal {
 		List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 		List<Pedido> listaPedidos = new ArrayList<Pedido>();
 		List<Cardapio> listaCardapio = new ArrayList<Cardapio>();
+		
 		// Ainda vai ser implementado a parte de limitar acesso conforme o antigo principal_old.java
 		System.out.println("Olá, oque deseja fazer:");
 		System.out.println("[1] Gerenciar funcionários"
@@ -39,7 +40,8 @@ public class Principal {
 				// Opção de mudar status de cardapio ficou dentro das opções de pedido
 				break;
 			case 4:
-				System.out.println("[1] Cadastrar pedido");
+				System.out.println("[1] Cadastrar pedido"
+								 + "[2] Ver total");
 				Integer opcaoPedido = scan.nextInt();
 				switch(opcaoPedido) {
 					case 1:
@@ -85,12 +87,13 @@ public class Principal {
 	}
 	
 	// Pedidos
-	public static Pedido CadastraPedido(Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato) {
-		return new Pedido(numeroMesa, idGarcom, cardapioCodPrato);
+	public static Pedido CadastraPedido(Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato, Integer qtdItens) {
+		// Implementar redução de estoque
+		return new Pedido(numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
 	}
 	
 	public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
-		
+		Double total = 
 	}
 	// Acompanhamento de vendas por funcionário
 	

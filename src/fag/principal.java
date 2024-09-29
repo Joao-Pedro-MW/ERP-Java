@@ -12,6 +12,7 @@ public class Principal {
 		List<Mesa> listaMesas = new ArrayList<Mesa>();
 		List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 		List<Pedido> listaPedidos = new ArrayList<Pedido>();
+		List<Cardapio> listaCardapio = new ArrayList<Cardapio>();
 		
 		// Ainda vai ser implementado a parte de limitar acesso conforme o antigo principal_old.java
 		System.out.println("Olá, oque deseja fazer:");
@@ -51,7 +52,6 @@ public class Principal {
 						int codigoPrato = scan.nextInt();
 						listaPedidos.add(CadastraPedido(numeroMesa, idGarcom, codigoPrato));
 						System.out.println("Pedido enviado!");
-				
 				break;
 					}
 			case 5:
@@ -85,11 +85,14 @@ public class Principal {
 		return new Mesa(numeromesa, qtdpedido, capacidadepessoa, disponibilidade);
 	}
 	
-	// Registro de pedidos
+	// Pedidos
 	public static Pedido CadastraPedido(Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato) {
 		return new Pedido(numeroMesa, idGarcom, cardapioCodPrato);
 	}
 	
+	public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
+		
+	}
 	// Acompanhamento de vendas por funcionário
 	
 	// Fechamento de conta e faturamento

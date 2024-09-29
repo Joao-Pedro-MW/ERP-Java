@@ -17,21 +17,22 @@ public class Principal {
 						 + "[2] Gerenciar mesas"
 						 + "[3] Gerenciar cardapio"
 						 + "[4] Gerenciar pedidos"
-						 + "[5] Extrair relatórios");
+						 + "[5] Extrair relatórios"
+						 + "----------------------------");
 		Integer opcaoMenu = scan.nextInt();
 		
 		switch (opcaoMenu) {
 			case 1:
 				// Gerenciar funcionários
-				text;
+				// Implementar as funções criadas CadastraCarcom e demais para gerenciar os funcionários,
+				// Eles devem ser listados na lista ListaMesas
 				break;
 			case 2:
-				// Gerenciar mesas
-				text;
+				System.out.println("[1]");
 				break;
 			case 3:
 				// Gerenciar cardapio
-				text;
+				// Implementar função para gerenciar o cardapio, como cadastrar itens e mudar a disponibilidade
 				break;
 			case 4:
 				// Gerenciar pedidos

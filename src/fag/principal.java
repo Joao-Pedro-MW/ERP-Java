@@ -36,28 +36,27 @@ public class Principal {
 			case 3:
 				// Gerenciar cardapio
 				// Implementar função para gerenciar o cardapio, como cadastrar itens e mudar a disponibilidade
+				// Opção de mudar status de cardapio ficou dentro das opções de pedido
 				break;
 			case 4:
-				System.out.println("[1] Cadastrar pedido"
-								 + "[2] Entregar pedido"
-								 + "[3] Apagar pedido");
+				System.out.println("[1] Cadastrar pedido");
 				Integer opcaoPedido = scan.nextInt();
 				switch(opcaoPedido) {
 					case 1:
-						text;
-						break;
-					case 2:
-						text;
-						break;
-					case 3:
-						text;
-						break;
-				}
+						System.out.print("Informe o número da mesa:");
+						int numeroMesa = scan.nextInt();
+						System.out.print("Informe seu ID:");
+						int idGarcom = scan.nextInt();
+						System.out.println("Informe o número do prato:");
+						int codigoPrato = scan.nextInt();
+						listaPedidos.add(CadastraPedido(numeroMesa, idGarcom, codigoPrato));
+						System.out.println("Pedido enviado!");
 				
 				break;
+					}
 			case 5:
 				// Extrair relatórios
-				text;
+				System.out.println("Bzzz");;
 				break;
 			case 6:
 				System.out.println("Você escolheu sair :)");
@@ -65,39 +64,36 @@ public class Principal {
 			default:
 				System.out.println("Ops, esta opção não existe!");
 		}
-		}
 		
-		
-		
-		// Gestão funcionários
-		public static Funcionario CadastraCarcom(String nome, Integer id) {
-			return new Funcionario (nome,id,1);
-		}
-		public static Funcionario CadastraCozinheiro(String nome, Integer id) {
-			return new Funcionario (nome,id,2);
-		}
-		public static Funcionario CadastraGerente(String nome, Integer id) {
-			return new Funcionario (nome,id,3);
-		}
-		
-		// Gerenciamento cardápio
-		
-		// Cadastro mesas
-		public static Mesa CadastraMesa(ArrayList listaMesas, String numeromesa, String qtdpedido, String capacidadepessoa, Boolean disponibilidade) {
-			return new Mesa(numeromesa, qtdpedido, capacidadepessoa, disponibilidade);
-		}
-		
-		// Registro de pedidos
-		public static void CadastraPedido() {}
-		public static void RemovePedido() {}
-		public static void EntregaPedido() {}
-		
-		// Acompanhamento de vendas por funcionário
-		
-		// Fechamento de conta e faturamento
-		
-		// Relatório de faturamento por restaurante
-
 	}
+
+	// Gestão funcionários
+	public static Funcionario CadastraCarcom(String nome, Integer id) {
+		return new Funcionario (nome,id,1);
+	}
+	public static Funcionario CadastraCozinheiro(String nome, Integer id) {
+		return new Funcionario (nome,id,2);
+	}
+	public static Funcionario CadastraGerente(String nome, Integer id) {
+		return new Funcionario (nome,id,3);
+	}
+	
+	// Gerenciamento cardápio
+	
+	// Cadastro mesas
+	public static Mesa CadastraMesa(ArrayList listaMesas, String numeromesa, String qtdpedido, String capacidadepessoa, Boolean disponibilidade) {
+		return new Mesa(numeromesa, qtdpedido, capacidadepessoa, disponibilidade);
+	}
+	
+	// Registro de pedidos
+	public static Pedido CadastraPedido(Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato) {
+		return new Pedido(numeroMesa, idGarcom, cardapioCodPrato);
+	}
+	
+	// Acompanhamento de vendas por funcionário
+	
+	// Fechamento de conta e faturamento
+	
+	// Relatório de faturamento por restaurante
 
 }

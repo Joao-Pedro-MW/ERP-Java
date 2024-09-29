@@ -8,8 +8,8 @@ public class ItemCardapio {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		boolean controleFluxo = true;
-		ArrayList<card> cardapio = new ArrayList<card>();
-		ArrayList<cardb> cardapiob = new ArrayList<cardb>();
+		ArrayList<Cardapio> cardapio = new ArrayList<Cardapio>();
+		ArrayList<CardapioBebidas> cardapiob = new ArrayList<CardapioBebidas>();
 
 		while (controleFluxo) {
 			System.out.println("Escolha uma opção que deseja:\n [1]Cadastrar pratos \n [2]Cadastrar bebidas \n [3]Remover item \n [4]Atualizar disponibilidade");
@@ -25,7 +25,7 @@ public class ItemCardapio {
 				System.out.println("Escreva a disponibilidade do prato:");
 				int dispPrato = sc.nextInt();
 
-				card novoPrato = new card(nomePrato, codPrato, precoPrato, dispPrato);
+				Cardapio novoPrato = new Cardapio(nomePrato, codPrato, precoPrato, dispPrato);
 				cardapio.add(novoPrato);
 			}
 			if (cadinput == 2) {
@@ -38,7 +38,7 @@ public class ItemCardapio {
 				System.out.println("Escreva a disponibilidade da Bebida:");
 				int dispBebida = sc.nextInt();
 
-				cardb novaBeb = new cardb(nomeBebida, codBebida, precoBebida, dispBebida);
+				CardapioBebidas novaBeb = new CardapioBebidas(nomeBebida, codBebida, precoBebida, dispBebida);
 				cardapiob.add(novaBeb);
 			}
 
@@ -71,7 +71,7 @@ public class ItemCardapio {
 				System.out.println("Escreva o código do item que deseja atualizar:");
 				int codAtualizar = sc.nextInt();
 				boolean encontrado = false;
-				for (card prato : cardapio) {
+				for (Cardapio prato : cardapio) {
 					if (prato.getcodPrato() == codAtualizar) {
 						System.out.println("Digite a nova disponibilidade:");
 						int novaDisp = sc.nextInt();
@@ -82,7 +82,7 @@ public class ItemCardapio {
 					}
 				}
 				if (!encontrado) {
-					for (cardb bebida : cardapiob) {
+					for (CardapioBebidas bebida : cardapiob) {
 						if (bebida.getcodBebida() == codAtualizar) {
 							System.out.println("Digite a nova disponibilidade:");
 							int novaDisp = sc.nextInt();
@@ -100,12 +100,12 @@ public class ItemCardapio {
 			}
 
 			System.out.println(" LISTA CARDAPIO ");
-			for (card prato : cardapio) {
+			for (Cardapio prato : cardapio) {
 				System.out.println(" " + prato.prato());
 
 			}
 
-			for (cardb bebida : cardapiob) {
+			for (CardapioBebidas bebida : cardapiob) {
 				System.out.println(" " + bebida.bebida());
 			}
 

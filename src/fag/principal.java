@@ -1,78 +1,51 @@
 package fag;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import objetos.Cadastrofuncionarios;
-import objetos.Mesa;
+import objetos.*;
 
-public class principal {
-
+public class Principal {
 
 	public static void main(String[] args) {
-		
 		Scanner scan = new Scanner(System.in);
+		List<Mesa> listaMesas = new ArrayList<Mesa>();
+		List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 		
+		System.out.println("1) Entrar Como Administrador\n"
+				         + "2) Entrar como funcionário\n");
 		
-		System.out.println("1) Entrar Como Administrador\n2) Entrar como funcionário\n");
 		int escolhausuario = scan.nextInt();
 		
-		while(true) {
-		if(escolhausuario == 1) {
-			
-			String loginInput = "";
-			String SenhaImput = "";
-			String login="admadm";
-			String senha="123123";
-			teste
-			
-			System.out.println("Faça o Login\n\nUsuário:\nSenha:\n");
-			loginInput = scan.next();
-			SenhaImput = scan.next();
-			
-				if(!loginInput.equals(login)) {
-					System.out.println("Login Incorreto");
-					continue;
-				}
-				if(!SenhaImput.equals(senha)) {
-					System.out.println("Senha Incorreta");
-					continue;
-				}
-				if(login.equals(loginInput) && senha.equals(SenhaImput)) {
-					System.out.println("BEM VINDO!!\n");
-					escolhausuario = 0;
-					
-					while(true){
-					System.out.println("1)Adicionar Funcionario\n2)Remover o Funcionário\n3)Ver Venda Por funcionario.");
-					escolhausuario = scan.nextInt();
-					
-					if(escolhausuario == 1) 
-					{
-						
-						escolhausuario = 0;
-						System.out.println("Quantos funcionários você quer adicionar?");
-						escolhausuario = scan.next();
-						
-						
-						
-					}
-						if(escolhausuario == 2) 
-						{
-						
-						}	
-							if(escolhausuario == 3) 
-							{
-							
-							}	
-					}
-				
-		}
-		
 		
 		}
 		
+		// Gestão funcionários
+		public static Funcionario CadastraCarcom(String nome, Integer id) {
+			return new Funcionario (nome,id,1);
+		}
+		public static Funcionario CadastraCozinheiro(String nome, Integer id) {
+			return new Funcionario (nome,id,2);
+		}
+		public static Funcionario CadastraGerente(String nome, Integer id) {
+			return new Funcionario (nome,id,3);
+		}
 		
-	}
+		// Gerenciamento cardápio
+		
+		// Cadastro mesas
+		public static Mesa CadastraMesa(ArrayList listaMesas, String numeromesa, String qtdpedido, String capacidadepessoa, Boolean disponibilidade) {
+			return new Mesa(numeromesa, qtdpedido, capacidadepessoa, disponibilidade);
+		}
+		
+		// Registro de pedidos
+		
+		// Acompanhamento de vendas por funcionário
+		
+		// Fechamento de conta e faturamento
+		
+		// Relatório de faturamento por restaurante
+
 	}
 
 }

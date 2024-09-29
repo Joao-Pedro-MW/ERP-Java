@@ -2,12 +2,12 @@ package objetos;
 
 import objetos.Mesa;
 import objetos.Pedidos;
-import objetos.Cadastrofuncionarios;
-import fag.principal;
+import objetos.Funcionario;
+import fag.principal_old;
 
 public class Garcom {
 	
-	private Cadastrofuncionarios funcionario;
+	private Funcionario funcionario;
 	private Float venda;
 	
 

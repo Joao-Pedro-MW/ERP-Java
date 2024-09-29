@@ -1,12 +1,12 @@
 package objetos;
 
-public class card {
+public class Cardapio {
 	private String nomePrato;
 	private int codPrato;
 	private float precoPrato;
 	private int dispPrato;
 
-	public card(String nomePrato, int codPrato, float precoPrato, int dispPrato) {
+	public Cardapio(String nomePrato, int codPrato, float precoPrato, int dispPrato) {
 		this.nomePrato = nomePrato;
 		this.codPrato = codPrato;
 		this.precoPrato = precoPrato;

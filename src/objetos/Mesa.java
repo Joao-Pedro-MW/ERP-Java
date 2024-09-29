@@ -1,6 +1,5 @@
 package objetos;
 
-
 public class Mesa {
 
     private String numeromesa;
@@ -8,14 +7,6 @@ public class Mesa {
     private String capacidadepessoa;
     private Boolean disponibilidade;
 
-
-    public Mesa() {
-        this.numeromesa = "";
-        this.qtdpedido = "";
-        this.capacidadepessoa = "";
-        this.disponibilidade = false;
-    }
-    
     public Mesa(String numeromesa, String qtdpedido, String capacidadepessoa, Boolean disponibilidade) {
         this.numeromesa = "";
         this.qtdpedido = "";
@@ -24,7 +15,6 @@ public class Mesa {
     }
     
  
-    
 	public String getNumeromesa() {
 		return numeromesa;
 	}

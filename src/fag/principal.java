@@ -157,7 +157,7 @@ public class Principal {
 						int codigoPrato = scan.nextInt();
 						System.out.println("Informe a quantidade do prato:");
 						int quantidadeItems = scan.nextInt();
-						listaPedidos.add(CadastraPedido(numeroMesa, idGarcom, codigoPrato,quantidadeItems));
+						listaPedidos.add(CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoPrato,quantidadeItems));
 						System.out.println("Pedido enviado!");
 				break;
 					}
@@ -193,13 +193,14 @@ public class Principal {
 	}
 	
 	// Pedidos
-	public static Pedido CadastraPedido(Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato, Integer qtdItens) {
+	public static Pedido CadastraPedido(List listaPedidos,Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato, Integer qtdItens) {
 		// Implementar redução de estoque
-		return new Pedido(numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
+		Integer idPedido = listaPedidos.size() + 1;
+		return new Pedido(idPedido,numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
 	}
 	
 	public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
-		Double total = 
+		
 	}
 	// Acompanhamento de vendas por funcionário
 	

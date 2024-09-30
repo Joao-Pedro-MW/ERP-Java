@@ -13,12 +13,7 @@ public class Principal {
 		List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 		List<Pedido> listaPedidos = new ArrayList<Pedido>();
 		List<Cardapio> listaCardapio = new ArrayList<Cardapio>();
-<<<<<<< Updated upstream
-		
-=======
-		ArrayList<CardapioBebidas> cardapiob = new ArrayList<CardapioBebidas>();
-	
->>>>>>> Stashed changes
+		ArrayList<CardapioBebidas> listaCardapioBebidas = new ArrayList<CardapioBebidas>();
 		// Ainda vai ser implementado a parte de limitar acesso conforme o antigo principal_old.java
 		System.out.println("Olá, oque deseja fazer:");
 		System.out.println("[1] Gerenciar funcionários"
@@ -71,7 +66,7 @@ public class Principal {
 						int dispBebida = scan.nextInt();
 		
 						CardapioBebidas novaBeb = new CardapioBebidas(nomeBebida, codBebida, precoBebida, dispBebida);
-						cardapiob.add(novaBeb);
+						listaCardapioBebidas.add(novaBeb);
 					}
 		
 					if (cadinput == 3) {
@@ -89,9 +84,9 @@ public class Principal {
 						}
 		
 						if (!encontrado) {
-							for (int i = 0; i < cardapiob.size(); i++) {
-								if (cardapiob.get(i).getcodBebida() == codRemover) {
-									cardapiob.remove(i);
+							for (int i = 0; i < listaCardapioBebidas.size(); i++) {
+								if (listaCardapioBebidas.get(i).getcodBebida() == codRemover) {
+									listaCardapioBebidas.remove(i);
 									encontrado = true;
 									System.out.println("Item removido com sucesso!");
 		
@@ -114,7 +109,7 @@ public class Principal {
 							}
 						}
 						if (!encontrado) {
-							for (CardapioBebidas bebida : cardapiob) {
+							for (CardapioBebidas bebida : listaCardapioBebidas) {
 								if (bebida.getcodBebida() == codAtualizar) {
 									System.out.println("Digite a nova disponibilidade:");
 									int novaDisp = scan.nextInt();
@@ -137,7 +132,7 @@ public class Principal {
 		
 					}
 		
-					for (CardapioBebidas bebida : cardapiob) {
+					for (CardapioBebidas bebida : listaCardapioBebidas) {
 						System.out.println(" " + bebida.bebida());
 					}
 		

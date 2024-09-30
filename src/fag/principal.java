@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import objetos.*;
 
-public class Principal {
+public class principal {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -13,20 +13,20 @@ public class Principal {
 		List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 		List<Pedido> listaPedidos = new ArrayList<Pedido>();
 		List<Cardapio> listaCardapio = new ArrayList<Cardapio>();
-<<<<<<< Updated upstream
 		
-=======
+		listaFuncionarios.add(new Funcionario("Kaique",05,1));
+
+
 		ArrayList<CardapioBebidas> cardapiob = new ArrayList<CardapioBebidas>();
-	
->>>>>>> Stashed changes
+		
 		// Ainda vai ser implementado a parte de limitar acesso conforme o antigo principal_old.java
-		System.out.println("Olá, oque deseja fazer:");
-		System.out.println("[1] Gerenciar funcionários"
-						 + "[2] Gerenciar mesas"
-						 + "[3] Gerenciar cardapio"
-						 + "[4] Gerenciar pedidos"
-						 + "[5] Extrair relatórios"
-						 + "[6] Sair"
+		System.out.println("Olá, oque deseja fazer:\n");
+		System.out.println("[1] Gerenciar funcionários\n"
+						 + "[2] Gerenciar mesas\n"
+						 + "[3] Gerenciar cardapio\n"
+						 + "[4] Gerenciar pedidos\n"
+						 + "[5] Extrair relatórios\n"
+						 + "[6] Sair\n"
 						 + "----------------------------");
 		Integer opcaoMenu = scan.nextInt();
 		
@@ -35,6 +35,18 @@ public class Principal {
 				// Gerenciar funcionários
 				// Implementar as funções criadas CadastraCarcom e demais para gerenciar os funcionários,
 				// Eles devem ser listados na lista ListaMesas
+				int escolha;
+				System.out.println("[1] Mostrar Funcionários\n"+"[2] Adicionar Funcionário\n[3] Excluir Funcionario");
+				escolha = scan.nextInt();
+				
+				if (escolha == 1) {
+					for(Funcionario listaf : listaFuncionarios) {
+						System.out.println(listaf);
+					}
+				}
+				
+				
+				
 				break;
 			case 2:
 				System.out.println("[1]");
@@ -44,7 +56,12 @@ public class Principal {
 				// Implementar função para gerenciar o cardapio, como cadastrar itens e mudar a disponibilidade
 				// Opção de mudar status de cardapio ficou dentro das opções de pedido
 		
-					System.out.println("Escolha uma opção que deseja:\n [1]Cadastrar pratos \n [2]Cadastrar bebidas \n [3]Remover item \n [4]Atualizar disponibilidade");
+					System.out.println("Escolha uma opção que deseja:\n "
+							+ "[1]Cadastrar pratos "
+							+ "\n [2]Cadastrar bebidas "
+							+ "\n [3]Remover item "
+							+ "\n [4]Atualizar disponibilidade");
+					
 					int cadinput = scan.nextInt();
 					
 					if (cadinput == 1) {
@@ -160,7 +177,7 @@ public class Principal {
 						int idGarcom = scan.nextInt();
 						System.out.println("Informe o número do prato:");
 						int codigoPrato = scan.nextInt();
-						listaPedidos.add(CadastraPedido(numeroMesa, idGarcom, codigoPrato));
+						//listaPedidos.add(CadastraPedido(numeroMesa, idGarcom, codigoPrato));
 						System.out.println("Pedido enviado!");
 				break;
 					}
@@ -201,9 +218,9 @@ public class Principal {
 		return new Pedido(numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
 	}
 	
-	public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
-		Double total = 
-	}
+	//public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
+		//Double total = 
+	//}
 	// Acompanhamento de vendas por funcionário
 	
 	// Fechamento de conta e faturamento

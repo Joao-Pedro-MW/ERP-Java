@@ -22,22 +22,17 @@ public class principal {
 		ArrayList<CardapioBebidas> listaCardapioBebidas = new ArrayList<CardapioBebidas>();
 
 		// Ainda vai ser implementado a parte de limitar acesso conforme o antigo principal_old.java
-<<<<<<< HEAD
 		System.out.println("Olá, oque deseja fazer:\n");
-=======
 		System.out.println("Olá, oque deseja fazer:");
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
 		System.out.println("[1] Gerenciar funcionários\n"
 						 + "[2] Gerenciar mesas\n"
 						 + "[3] Gerenciar cardapio\n"
 						 + "[4] Gerenciar pedidos\n"
 						 + "[5] Extrair relatórios\n"
-<<<<<<< HEAD
 						 + "[6] Sair\n"
-=======
 						 + "[6] Sair"
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
 						 + "----------------------------");
+		
 		Integer opcaoMenu = scan.nextInt();
 		
 		switch (opcaoMenu) {
@@ -59,7 +54,7 @@ public class principal {
 						System.out.println("Escolha o cargo:\n[1] Garçom\n[2] Cozinheiro\n[3] Gerente");
 		                int cargo = scan.nextInt();
 		                
-		                int novoId = listaFuncionarios.size() + 1;  // Gera ID baseado no tamanho da lista
+		                int novoId = listaFuncionarios.size() + 1;
 		                
 		                listaFuncionarios.add(new Funcionario(nome, novoId, cargo));
 		                
@@ -73,12 +68,12 @@ public class principal {
 
 						
 						for (int i = 0; i < listaFuncionarios.size(); i++) {
-						    // Verifica se o nome do funcionário corresponde ao nome que você deseja remover
+						    
 						    if (listaFuncionarios.get(i).getNome().equals(removenome)) {
-						        listaFuncionarios.remove(i); // Remove o funcionário encontrado
+						        listaFuncionarios.remove(i);
 						        encontrado = true;
 						        System.out.println("Item removido com sucesso!");
-						        break; // Interrompe o loop já que o funcionário foi encontrado e removido
+						        break;
 						    }
 						}
 
@@ -93,7 +88,28 @@ public class principal {
 				
 				break;
 			case 2:
-				System.out.println("[1]");
+				
+				System.out.println("[1] Mostrar Mesas\n [2] Adicionar Mesa\n [3] Remover Mesa\n");
+				int escolhamesa = scan.nextInt();
+				
+					if (escolhamesa == 1) {
+						for(Mesa listamesa : listaMesas) {
+							System.out.println(listamesa);
+						}
+						if (escolhamesa == 2) {
+							System.out.println("Número da Mesa");
+							String mesa = scan.next();
+							System.out.println("Capacidade da mesa");
+							String capacidadepessoa = scan.next();
+							System.out.println("Informe a Disponibilidade da mesa: [1] Disponível\n [2] Ocupada\n");
+							int disponibilidade = scan.nextInt();
+							
+							listaMesas.add(new Mesa(mesa, capacidadepessoa, disponibilidade));
+							
+						}
+					}
+
+				
 				break;
 			case 3:
 				// Gerenciar cardapio
@@ -229,7 +245,7 @@ public class principal {
 				scan.close();
 				break;
 			case 4:
-<<<<<<< HEAD
+
 				System.out.println("[1] Cadastrar pedido"
 								 + "[2] Ver total");
 				Integer opcaoPedido = scan.nextInt();
@@ -251,7 +267,7 @@ public class principal {
 						System.out.println("Pedido enviado!");
 				break;
 					}
-=======
+
 				while(true) {
 					System.out.println("[1] Cadastrar pedido"
 							 + "[2] Ver total");
@@ -279,7 +295,7 @@ public class principal {
 							break;
 						}
 				}
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
+
 			case 5:
 				// Extrair relatórios
 				System.out.println("Bzzz");;
@@ -307,8 +323,8 @@ public class principal {
 	// Gerenciamento cardápio
 	
 	// Cadastro mesas
-	public static Mesa CadastraMesa(ArrayList listaMesas, String numeromesa, String qtdpedido, String capacidadepessoa, Boolean disponibilidade) {
-		return new Mesa(numeromesa, qtdpedido, capacidadepessoa, disponibilidade);
+	public static Mesa CadastraMesa(ArrayList listaMesas, String numeromesa, String capacidadepessoa, Boolean disponibilidade) {
+		return new Mesa(numeromesa, capacidadepessoa, disponibilidade);
 	}
 	
 	// Pedidos
@@ -318,18 +334,16 @@ public class principal {
 		return new Pedido(idPedido,numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
 	}
 	
-<<<<<<< HEAD
 
 	//public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
 		//Double total = 
 	//}
 
 	public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
-=======
+		
+	}
 	public static void TotalPedido(List listaPedido, Integer idPedido) {
 		Object pedido = listaPedido.get(idPedido-1);
-		
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
 		
 	}
 	// Acompanhamento de vendas por funcionário

@@ -3,15 +3,23 @@ package objetos;
 public class Mesa {
 
     private String numeromesa;
-    private String qtdpedido;
     private String capacidadepessoa;
     private Boolean disponibilidade;
 
-    public Mesa(String numeromesa, String qtdpedido, String capacidadepessoa, Boolean disponibilidade) {
+    public Mesa(String numeromesa, String capacidadepessoa, Integer disponibilidade) {
         this.numeromesa = "";
-        this.qtdpedido = "";
         this.capacidadepessoa = "";
-        this.disponibilidade = false;
+        
+		switch (disponibilidade) {
+		case 1:
+			this.disponibilidade = true;
+			break;
+		case 2:
+			this.disponibilidade = false;
+			break;
+		default:
+			this.disponibilidade = false;
+	}
     }
     
  
@@ -20,12 +28,6 @@ public class Mesa {
 	}
 	public void setNumeromesa(String numeromesa) {
 		this.numeromesa = numeromesa;
-	}
-	public String getQtdpedido() {
-		return qtdpedido;
-	}
-	public void setQtdpedido(String qtdpedido) {
-		this.qtdpedido = qtdpedido;
 	}
 	public String getCapacidadepessoa() {
 		return capacidadepessoa;
@@ -39,10 +41,13 @@ public class Mesa {
 	public void setDisponibilidade(Boolean disponibilidade) {
 		this.disponibilidade = disponibilidade;
 	}
-	
+
+
 	@Override
 	public String toString() {
-		return "Mesa [numeromesa=" + numeromesa + ", qtdpedido=" + qtdpedido + ", capacidadepessoa=" + capacidadepessoa
-				+ ", disponibilidade=" + disponibilidade + "]";
+		return "Mesa [numeromesa=" + numeromesa + ", capacidadepessoa=" + capacidadepessoa + ", disponibilidade="
+				+ disponibilidade + "]";
 	}
+	
+
 }

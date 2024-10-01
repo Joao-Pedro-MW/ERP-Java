@@ -90,8 +90,6 @@ public class principal {
 				// Gerenciar cardapio
 				// Implementar função para gerenciar o cardapio, como cadastrar itens e mudar a disponibilidade
 				// Opção de mudar status de cardapio ficou dentro das opções de pedido
-
-		
 					System.out.println("Escolha uma opção que deseja:\n "
 							+ "[1]Cadastrar pratos "
 							+ "\n [2]Cadastrar bebidas "
@@ -99,7 +97,6 @@ public class principal {
 							+ "\n [4]Atualizar disponibilidade");
 					
 					int cadinput = scan.nextInt();
-					
 					if (cadinput == 1) {
 						System.out.println("Escreva o nome do prato:");
 						String nomePrato = scan.next();
@@ -112,139 +109,96 @@ public class principal {
 		
 						Cardapio novoPrato = new Cardapio(nomePrato, codPrato, precoPrato, dispPrato);
 						listaCardapio.add(novoPrato);
-
-	
-				System.out.println("Escolha uma opção que deseja:\n [1]Cadastrar pratos \n [2]Cadastrar bebidas \n [3]Remover item \n [4]Atualizar disponibilidade");
-				int cadinput = scan.nextInt();
-				
-				if (cadinput == 1) {
-					System.out.println("Escreva o nome do prato:");
-					String nomePrato = scan.next();
-					System.out.println("Escreva o codigo do item:");
-					int codPrato = scan.nextInt();
-					System.out.println("Escreva o valor do prato:");
-					float precoPrato = scan.nextFloat();
-					System.out.println("Escreva a disponibilidade do prato:");
-					int dispPrato = scan.nextInt();
-	
-					Cardapio novoPrato = new Cardapio(nomePrato, codPrato, precoPrato, dispPrato);
-					listaCardapio.add(novoPrato);
-				}
-				if (cadinput == 2) {
-					System.out.println("Escreva o nome da bebida:");
-					String nomeBebida = scan.next();
-					System.out.println("Escreva o codigo do item:");
-					int codBebida = scan.nextInt();
-					System.out.println("Escreva o valor da Bebida:");
-					float precoBebida = scan.nextFloat();
-					System.out.println("Escreva a disponibilidade da Bebida:");
-					int dispBebida = scan.nextInt();
-	
-					CardapioBebidas novaBeb = new CardapioBebidas(nomeBebida, codBebida, precoBebida, dispBebida);
-					listaCardapioBebidas.add(novaBeb);
-				}
-	
-				if (cadinput == 3) {
-					System.out.println("Escreva o código do item que deseja remover:");
-					int codRemover = scan.nextInt();
-					boolean encontrado = false;
-	
-					for (int i = 0; i < listaCardapio.size(); i++) {
-						if (listaCardapio.get(i).getcodPrato() == codRemover) {
-							listaCardapio.remove(i);
-							encontrado = true;
-							System.out.println("Item removido com sucesso!");
-	
-						}
-
 					}
-	
-					if (!encontrado) {
-						for (int i = 0; i < listaCardapioBebidas.size(); i++) {
-							if (listaCardapioBebidas.get(i).getcodBebida() == codRemover) {
-								listaCardapioBebidas.remove(i);
+					if (cadinput == 2) {
+						System.out.println("Escreva o nome da bebida:");
+						String nomeBebida = scan.next();
+						System.out.println("Escreva o codigo do item:");
+						int codBebida = scan.nextInt();
+						System.out.println("Escreva o valor da Bebida:");
+						float precoBebida = scan.nextFloat();
+						System.out.println("Escreva a disponibilidade da Bebida:");
+						int dispBebida = scan.nextInt();
+		
+						CardapioBebidas novaBeb = new CardapioBebidas(nomeBebida, codBebida, precoBebida, dispBebida);
+						listaCardapioBebidas.add(novaBeb);
+					}
+		
+					if (cadinput == 3) {
+						System.out.println("Escreva o código do item que deseja remover:");
+						int codRemover = scan.nextInt();
+						boolean encontrado = false;
+		
+						for (int i = 0; i < listaCardapio.size(); i++) {
+							if (listaCardapio.get(i).getcodPrato() == codRemover) {
+								listaCardapio.remove(i);
 								encontrado = true;
 								System.out.println("Item removido com sucesso!");
+		
+							}
 	
+						}
+		
+						if (!encontrado) {
+							for (int i = 0; i < listaCardapioBebidas.size(); i++) {
+								if (listaCardapioBebidas.get(i).getcodBebida() == codRemover) {
+									listaCardapioBebidas.remove(i);
+									encontrado = true;
+									System.out.println("Item removido com sucesso!");
+		
+								}
 							}
 						}
 					}
-				}
-				if (cadinput == 4) {
-					System.out.println("Escreva o código do item que deseja atualizar:");
-					int codAtualizar = scan.nextInt();
-					boolean encontrado = false;
-					for (Cardapio prato : listaCardapio) {
-						if (prato.getcodPrato() == codAtualizar) {
-							System.out.println("Digite a nova disponibilidade:");
-							int novaDisp = scan.nextInt();
-							prato.setdispPrato(novaDisp);
-							encontrado = true;
-							System.out.println("Disponibilidade atualizada com sucesso!");
-	
-						}
-					}
-					if (!encontrado) {
-						for (CardapioBebidas bebida : listaCardapioBebidas) {
-							if (bebida.getcodBebida() == codAtualizar) {
+					if (cadinput == 4) {
+						System.out.println("Escreva o código do item que deseja atualizar:");
+						int codAtualizar = scan.nextInt();
+						boolean encontrado = false;
+						for (Cardapio prato : listaCardapio) {
+							if (prato.getcodPrato() == codAtualizar) {
 								System.out.println("Digite a nova disponibilidade:");
 								int novaDisp = scan.nextInt();
-								bebida.setdispBebida(novaDisp);
+								prato.setdispPrato(novaDisp);
 								encontrado = true;
-								System.out.println("Disponibilidade atualizada com sucesso!\n");
-	
+								System.out.println("Disponibilidade atualizada com sucesso!");
+		
 							}
 						}
+						if (!encontrado) {
+							for (CardapioBebidas bebida : listaCardapioBebidas) {
+								if (bebida.getcodBebida() == codAtualizar) {
+									System.out.println("Digite a nova disponibilidade:");
+									int novaDisp = scan.nextInt();
+									bebida.setdispBebida(novaDisp);
+									encontrado = true;
+									System.out.println("Disponibilidade atualizada com sucesso!\n");
+		
+								}
+							}
+						}
+		
+						if (!encontrado) {
+							System.out.println("Item não encontrado!");
+						}
 					}
-	
-					if (!encontrado) {
-						System.out.println("Item não encontrado!");
+		
+					System.out.println(" LISTA CARDAPIO ");
+					for (Cardapio prato : listaCardapio) {
+						System.out.println(" " + prato.prato());
+		
 					}
-				}
-	
-				System.out.println(" LISTA CARDAPIO ");
-				for (Cardapio prato : listaCardapio) {
-					System.out.println(" " + prato.prato());
-	
-				}
-	
-				for (CardapioBebidas bebida : listaCardapioBebidas) {
-					System.out.println(" " + bebida.bebida());
-				}
-	
-				System.out.println("Você deseja adicionar mais alguma alteração? ( sim/nao )");
-				String resposta = scan.next();
-				if (resposta.equals("nao")) {
-	
-				}
-				break;
+		
+					for (CardapioBebidas bebida : listaCardapioBebidas) {
+						System.out.println(" " + bebida.bebida());
+					}
+					// REMOVER INPUT DE TEXTO, MANTER INPUT NÚMERICO
+					System.out.println("Você deseja adicionar mais alguma alteração? ( sim/nao )");
 			case 4:
-				System.out.println("[1] Cadastrar pedido"
-								 + "[2] Ver total");
+				System.out.println("[1] Cadastrar pedido\n"
+								 + "[2] Ver total de bebidas\n"
+								 + "[3] Ver total de comida\n");
 				Integer opcaoPedido = scan.nextInt();
 				switch(opcaoPedido) {
-					case 1:
-						System.out.print("Informe o número da mesa:");
-						int numeroMesa = scan.nextInt();
-						System.out.print("Informe seu ID:");
-						int idGarcom = scan.nextInt();
-						System.out.println("Informe o número do prato:");
-						int codigoPrato = scan.nextInt();
-
-						//listaPedidos.add(CadastraPedido(numeroMesa, idGarcom, codigoPrato));
-
-						System.out.println("Informe a quantidade do prato:");
-						int quantidadeItems = scan.nextInt();
-						listaPedidos.add(CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoPrato,quantidadeItems));
-
-						System.out.println("Pedido enviado!");
-				break;
-					}
-				while(true) {
-					System.out.println("[1] Cadastrar pedido"
-							 + "[2] Ver total");
-			Integer opcaoPedido = scan.nextInt();
-					switch(opcaoPedido) {
 						case 1:
 							System.out.print("Informe o número da mesa:");
 							int numeroMesa = scan.nextInt();
@@ -263,10 +217,8 @@ public class principal {
 						case 2:
 							System.out.println("Qual o número do pedido:");
 							Integer numeroPedido = scan.nextInt();
-							TotalPedido(listaPedidos,numeroPedido);
 							break;
 						}
-				}
 			case 5:
 				// Extrair relatórios
 				System.out.println("Bzzz");;

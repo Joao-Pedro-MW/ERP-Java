@@ -145,7 +145,7 @@ public class principal {
 									listaCardapioBebidas.remove(i);
 									encontrado = true;
 									System.out.println("Item removido com sucesso!");
-		
+	
 								}
 							}
 						}
@@ -205,18 +205,23 @@ public class principal {
 							System.out.print("Informe seu ID:");
 							int idGarcom = scan.nextInt();
 							System.out.println("Informe o número do prato:");
-							int codigoPrato = scan.nextInt();
+							int codigoItem = scan.nextInt();
 							System.out.println("Informe a quantidade do prato:");
 							int quantidadeItems = scan.nextInt();
-							Pedido novoPedido = CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoPrato,quantidadeItems);
+							Pedido novoPedido = CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoItem,quantidadeItems);
 							listaPedidos.add(novoPedido);
-							
 							System.out.println("Pedido enviado!");
 							System.out.println("Número do pedido:" + novoPedido.getIdPedido());
 							break;
 						case 2:
 							System.out.println("Qual o número do pedido:");
-							Integer numeroPedido = scan.nextInt();
+							Integer numPedidoBebida = scan.nextInt();
+							TotalPedidoBebida(listaPedidos, listaCardapioBebidas, numPedidoBebida);
+							break;
+						case 3:
+							System.out.println("Qual o número do pedido:");
+							Integer numPedido = scan.nextInt();
+							TotalPedidoComida(listaPedidos, listaCardapio, opcaoPedido);
 							break;
 						}
 			case 5:
@@ -258,12 +263,15 @@ public class principal {
 	}
 	public static void TotalPedidoComida(List<Pedido> listaPedido,List<Cardapio> listaCardapio, Integer idPedido) {
 		Pedido pedido = listaPedido.get(idPedido-1);
-		Integer totalPedido = pedido.getCardapioCodItem() * listaCardapio.indexOf(pedido.getCardapioCodItem());
-		System.out.println("Total do pedido: " + totalPedido);
+		Float vlrBebida = listaCardapio.get(pedido.getCardapioCodItem()-1).getprecoPrato();
+		Float totalPedido = pedido.getQuantidadeItem() + vlrBebida;
+		System.out.println("O total do pedido é: " + totalPedido);
 	}
 	public static void TotalPedidoBebida(List<Pedido> listaPedido,ArrayList<CardapioBebidas> listaCardapioBebidas, Integer idPedido) {
 		Pedido pedido = listaPedido.get(idPedido-1);
-		Integer totalPedido = pedido.getCardapioCodItem() * listaCardapioBebidas.indexOf(pedido.getCardapioCodItem());
+		Float vlrBebida = listaCardapioBebidas.get(pedido.getCardapioCodItem()-1).getprecoBebida();
+		Float totalPedido = pedido.getQuantidadeItem() + vlrBebida;
+		System.out.println("O total do pedido é: " + totalPedido);
 		
 	}
 	// Acompanhamento de vendas por funcionário

@@ -99,159 +99,165 @@ public class principal {
 				// Gerenciar cardapio
 				// Implementar função para gerenciar o cardapio, como cadastrar itens e mudar a disponibilidade
 				// Opção de mudar status de cardapio ficou dentro das opções de pedido
-		System.out.println("Escolha uma opção que deseja:\n "
-		+ "[1]Cadastrar pratos "
-		+ "\n [2]Cadastrar bebidas "
-		+ "\n [3]Remover item "
-		+ "\n [4]Atualizar disponibilidade");
-					
-		int cadinput = scan.nextInt();
-		switch (cadinput) {
-			case 1: 
-				System.out.println("Escreva o nome do prato:");
-				String nomePrato = scan.next();
-				System.out.println("Escreva o codigo do item:");
-				int codPrato = scan.nextInt();
-				System.out.println("Escreva o valor do prato:");
-				float precoPrato = scan.nextFloat();
-				System.out.println("Escreva a disponibilidade do prato:");
-				int dispPrato = scan.nextInt();
-		
-				Cardapio novoPrato = new Cardapio(nomePrato, codPrato, precoPrato, dispPrato);
-				listaCardapio.add(novoPrato);
-			break;
-					
-			case 2:
-				System.out.println("Escreva o nome da bebida:");
-				String nomeBebida = scan.next();
-				System.out.println("Escreva o codigo do item:");
-				int codBebida = scan.nextInt();
-				System.out.println("Escreva o valor da Bebida:");
-				float precoBebida = scan.nextFloat();
-				System.out.println("Escreva a disponibilidade da Bebida:");
-				int dispBebida = scan.nextInt();
-				CardapioBebidas novaBeb = new CardapioBebidas(nomeBebida, codBebida, precoBebida, dispBebida);
-				listaCardapioBebidas.add(novaBeb);
-			break;
-		
-			case 3: 
-			System.out.println("Escreva o código do item que deseja remover:");
-			int codRemover = scan.nextInt();
-			boolean encontrado = false;
-				for (int i = 0; i < listaCardapio.size(); i++) {
-					if (listaCardapio.get(i).getcodPrato() == codRemover) {
-						listaCardapio.remove(i);
-						encontrado = true;
-						System.out.println("Item removido com sucesso!");
-						}
-				}
-					if (!encontrado) {
-						for (int i = 0; i < listaCardapioBebidas.size(); i++) {
-							if (listaCardapioBebidas.get(i).getcodBebida() == codRemover) {
-								listaCardapioBebidas.remove(i);
+				System.out.println("Escolha uma opção que deseja:\n "
+				+ "[1]Cadastrar pratos "
+				+ "\n [2]Cadastrar bebidas "
+				+ "\n [3]Remover item "
+				+ "\n [4]Atualizar disponibilidade");
+							
+				int cadinput = scan.nextInt();
+				switch (cadinput) {
+					case 1: 
+						System.out.println("Escreva o nome do prato:");
+						String nomePrato = scan.next();
+						System.out.println("Escreva o codigo do item:");
+						int codPrato = scan.nextInt();
+						System.out.println("Escreva o valor do prato:");
+						float precoPrato = scan.nextFloat();
+						System.out.println("Escreva a disponibilidade do prato:");
+						int dispPrato = scan.nextInt();
+				
+						Cardapio novoPrato = new Cardapio(nomePrato, codPrato, precoPrato, dispPrato);
+						listaCardapio.add(novoPrato);
+					break;
+							
+					case 2:
+						System.out.println("Escreva o nome da bebida:");
+						String nomeBebida = scan.next();
+						System.out.println("Escreva o codigo do item:");
+						int codBebida = scan.nextInt();
+						System.out.println("Escreva o valor da Bebida:");
+						float precoBebida = scan.nextFloat();
+						System.out.println("Escreva a disponibilidade da Bebida:");
+						int dispBebida = scan.nextInt();
+						CardapioBebidas novaBeb = new CardapioBebidas(nomeBebida, codBebida, precoBebida, dispBebida);
+						listaCardapioBebidas.add(novaBeb);
+					break;
+				
+					case 3: 
+					System.out.println("Escreva o código do item que deseja remover:");
+					int codRemover = scan.nextInt();
+					boolean encontrado = false;
+						for (int i = 0; i < listaCardapio.size(); i++) {
+							if (listaCardapio.get(i).getcodPrato() == codRemover) {
+								listaCardapio.remove(i);
 								encontrado = true;
 								System.out.println("Item removido com sucesso!");
 								}
-							}
 						}
-			break;
-			
-			case 4:
-				System.out.println("Escreva o código do item que deseja atualizar:");
-				int codAtualizar = scan.nextInt();
-				encontrado = false;
-				for (Cardapio prato : listaCardapio) {
-					if (prato.getcodPrato() == codAtualizar) {
-						System.out.println("Digite a nova disponibilidade:");
-						int novaDisp = scan.nextInt();
-						prato.setdispPrato(novaDisp);
-						encontrado = true;
-						System.out.println("Disponibilidade atualizada com sucesso!");
-					}
-				}
-				if (!encontrado) {
-					for (CardapioBebidas bebida : listaCardapioBebidas) {
-						if (bebida.getcodBebida() == codAtualizar) {
-							System.out.println("Digite a nova disponibilidade:");
-							int novaDisp = scan.nextInt();
-							bebida.setdispBebida(novaDisp);
-							encontrado = true;
-							System.out.println("Disponibilidade atualizada com sucesso!\n");
-		
+							if (!encontrado) {
+								for (int i = 0; i < listaCardapioBebidas.size(); i++) {
+									if (listaCardapioBebidas.get(i).getcodBebida() == codRemover) {
+										listaCardapioBebidas.remove(i);
+										encontrado = true;
+										System.out.println("Item removido com sucesso!");
+										}
+									}
 								}
+					break;
+					
+					case 4:
+						System.out.println("Escreva o código do item que deseja atualizar:");
+						int codAtualizar = scan.nextInt();
+						encontrado = false;
+						for (Cardapio prato : listaCardapio) {
+							if (prato.getcodPrato() == codAtualizar) {
+								System.out.println("Digite a nova disponibilidade:");
+								int novaDisp = scan.nextInt();
+								prato.setdispPrato(novaDisp);
+								encontrado = true;
+								System.out.println("Disponibilidade atualizada com sucesso!");
 							}
 						}
-				if (!encontrado) {
-					System.out.println("Item não encontrado!");
-				}
-			break;
-		}
-		
-					System.out.println(" LISTA CARDAPIO ");
-					for (Cardapio prato : listaCardapio) {
-						System.out.println(" " + prato.prato());
-		
-					}
-		
-					for (CardapioBebidas bebida : listaCardapioBebidas) {
-						System.out.println(" " + bebida.bebida());
-					}
-					break;
-			
-			case 4:
-					System.out.println("[1] Cadastrar pedido\n"
-						 + "[2] Ver total de bebidas\n"
-						 + "[3] Ver total de comida\n");
-					Integer opcaoPedido = scan.nextInt();
-					float total;
-					switch(opcaoPedido) {
-							case 1:
-							System.out.print("Informe o número da mesa:");
-							int numeroMesa = scan.nextInt();
-							System.out.print("Informe seu ID de garçom:");
-							int idGarcom = scan.nextInt();
-							System.out.println("Informe o número do prato:");
-							int codigoItem = scan.nextInt();
-							System.out.println("Informe a quantidade do prato:");
-							int quantidadeItems = scan.nextInt();
-							System.out.println("[0] para Bebida \n[1] para Comida");
-							int tipoPedido = scan.nextInt();
-							Pedido novoPedido = CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoItem,tipoPedido,quantidadeItems);
-							listaPedidos.add(novoPedido);
-							System.out.println("Pedido enviado!");
-							System.out.println("Número do pedido:" + novoPedido.getIdPedido());
-							break;
-						case 2:
-							System.out.println("Qual o número do pedido:");
-							Integer numPedidoBebida = scan.nextInt();
-							total = TotalPedidoBebida(listaPedidos, listaCardapioBebidas, numPedidoBebida);
-							System.out.println("O total do pedido é: " + total);
-							break;
-						case 3:
-							System.out.println("Qual o número do pedido:");
-							Integer numPedido = scan.nextInt();
-							total = TotalPedidoComida(listaPedidos, listaCardapio, opcaoPedido);
-							System.out.println("O total do pedido é: " + total);
-							break;
+						if (!encontrado) {
+							for (CardapioBebidas bebida : listaCardapioBebidas) {
+								if (bebida.getcodBebida() == codAtualizar) {
+									System.out.println("Digite a nova disponibilidade:");
+									int novaDisp = scan.nextInt();
+									bebida.setdispBebida(novaDisp);
+									encontrado = true;
+									System.out.println("Disponibilidade atualizada com sucesso!\n");
+				
+										}
+									}
+								}
+						if (!encontrado) {
+							System.out.println("Item não encontrado!");
 						}
-			case 5:
-				// Extrair relatórios
-				// vendar por funcionario
+					break;
+				}
 				
-				// faturamento diário
+							System.out.println(" LISTA CARDAPIO ");
+							for (Cardapio prato : listaCardapio) {
+								System.out.println(" " + prato.prato());
 				
-				// pagamento comissão
-				System.out.println("Bzzz");;
-				break;
-			case 6:
-				System.out.println("Você escolheu sair :)");
-				break;
-			default:
-				System.out.println("Ops, esta opção não existe!");
-				break;
-		}
-		
-	}
+							}
+				
+							for (CardapioBebidas bebida : listaCardapioBebidas) {
+								System.out.println(" " + bebida.bebida());
+							}
+							break;
+					
+					case 4:
+							System.out.println("[1] Cadastrar pedido\n"
+								 + "[2] Ver total de bebidas\n"
+								 + "[3] Ver total de comida\n");
+							Integer opcaoPedido = scan.nextInt();
+							float total;
+							switch(opcaoPedido) {
+									case 1:
+									System.out.print("Informe o número da mesa:");
+									int numeroMesa = scan.nextInt();
+									System.out.print("Informe seu ID de garçom:");
+									int idGarcom = scan.nextInt();
+									System.out.println("Informe o número do prato:");
+									int codigoItem = scan.nextInt();
+									System.out.println("Informe a quantidade do prato:");
+									int quantidadeItems = scan.nextInt();
+									System.out.println("[0] para Bebida \n[1] para Comida");
+									int tipoPedido = scan.nextInt();
+									Pedido novoPedido = CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoItem,tipoPedido,quantidadeItems);
+									listaPedidos.add(novoPedido);
+									System.out.println("Pedido enviado!");
+									System.out.println("Número do pedido:" + novoPedido.getIdPedido());
+									break;
+								case 2:
+									System.out.println("Qual o número do pedido:");
+									Integer numPedidoBebida = scan.nextInt();
+									total = TotalPedidoBebida(listaPedidos, listaCardapioBebidas, numPedidoBebida);
+									System.out.println("O total do pedido é: " + total);
+									break;
+								case 3:
+									System.out.println("Qual o número do pedido:");
+									Integer numPedido = scan.nextInt();
+									total = TotalPedidoComida(listaPedidos, listaCardapio, opcaoPedido);
+									System.out.println("O total do pedido é: " + total);
+									break;
+								}
+					case 5:
+						// Extrair relatórios
+						// vendar por funcionario
+						System.out.println("Informe o ID do funcionário");
+						Integer idGarcom = scan.nextInt();
+						Float totalVendas = TotalVendasGarcomPorId(listaPedidos, listaCardapioBebidas, listaCardapio,idGarcom);
+						System.out.println("Total de vendas pelo funcionário informado é de: " + totalVendas);
+						
+						
+						// faturamento diário
+						System.out.println("Total de vendas no dia: " + TotalVendas(listaPedidos, listaCardapioBebidas, listaCardapio));
+						System.out.println();
+						// pagamento comissão
+						System.out.println("Bzzz");;
+						break;
+					case 6:
+						System.out.println("Você escolheu sair :)");
+						break;
+					default:
+						System.out.println("Ops, esta opção não existe!");
+						break;
+				}
+				
+			}
 
 	// Gestão funcionários
 	public static Funcionario CadastraCarcom(String nome, Integer id) {
@@ -290,6 +296,31 @@ public class principal {
 		return totalPedido;
 	}
 	// Acompanhamento de vendas por funcionário
+	public static float TotalVendasGarcomPorId(List<Pedido> listaPedidos,ArrayList<CardapioBebidas> listaCardapioBebidas,List<Cardapio> listaCardapio, Integer idGarcom) {
+		float totalPedido = 0;
+		for (Pedido pedido : listaPedidos) {
+			if(pedido.getIdGarcom() == idGarcom) {
+				
+				if(pedido.getTipoPedido() == 0) {
+					totalPedido += TotalPedidoBebida(listaPedidos, listaCardapioBebidas,pedido.getIdPedido());
+				} else {
+					totalPedido += TotalPedidoComida(listaPedidos, listaCardapio,pedido.getIdPedido());
+				}
+			}
+		}
+		return totalPedido;
+	}
+	public static float TotalVendas(List<Pedido> listaPedidos,ArrayList<CardapioBebidas> listaCardapioBebidas,List<Cardapio> listaCardapio) {
+		float total = 0;
+		for (Pedido pedido : listaPedidos) {
+			if(pedido.getTipoPedido() == 0) {
+				total += TotalPedidoBebida(listaPedidos, listaCardapioBebidas,pedido.getIdPedido());
+			} else {
+				total += TotalPedidoComida(listaPedidos, listaCardapio,pedido.getIdPedido());
+			}
+		}
+		return total;
+	}
 	
 	// Fechamento de conta e faturamento
 	

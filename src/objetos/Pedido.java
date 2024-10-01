@@ -21,6 +21,14 @@ public class Pedido {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Pedido [idPedido=" + idPedido + ", numeroMesa=" + numeroMesa + ", idGarcom=" + idGarcom
+				+ ", cardapioCodItem=" + cardapioCodItem + ", quantidadeItem=" + quantidadeItem + ", tipoPedido="
+				+ tipoPedido + "]";
+	}
+
+
 	public Integer getIdPedido() {
 		return idPedido;
 	}
@@ -71,10 +79,13 @@ public class Pedido {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", numeroMesa=" + numeroMesa + ", idGarcom=" + idGarcom
-				+ ", cardapioCodItem=" + cardapioCodItem + ", quantidadeItem=" + quantidadeItem + "]";
+	public Integer getTipoPedido() {
+		return tipoPedido;
+	}
+
+
+	public void setTipoPedido(Integer tipoPedido) {
+		this.tipoPedido = tipoPedido;
 	}
 	
 }

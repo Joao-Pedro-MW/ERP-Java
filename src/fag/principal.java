@@ -71,13 +71,9 @@ public class principal {
 
 						if (!encontrado) {
 						    System.out.println("Funcionário não encontrado.");
-						}
-							
+						}		
 					}
 				}
-				
-				
-				
 				break;
 			case 2:
 				
@@ -95,13 +91,9 @@ public class principal {
 							String capacidadepessoa = scan.next();
 							System.out.println("Informe a Disponibilidade da mesa: [1] Disponível\n [2] Ocupada\n");
 							int disponibilidade = scan.nextInt();
-							
 							listaMesas.add(new Mesa(mesa, capacidadepessoa, disponibilidade));
-							
 						}
 					}
-
-				
 				break;
 			case 3:
 				// Gerenciar cardapio
@@ -211,6 +203,7 @@ public class principal {
 						 + "[2] Ver total de bebidas\n"
 						 + "[3] Ver total de comida\n");
 					Integer opcaoPedido = scan.nextInt();
+					float total;
 					switch(opcaoPedido) {
 							case 1:
 							System.out.print("Informe o número da mesa:");
@@ -221,7 +214,9 @@ public class principal {
 							int codigoItem = scan.nextInt();
 							System.out.println("Informe a quantidade do prato:");
 							int quantidadeItems = scan.nextInt();
-							Pedido novoPedido = CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoItem,quantidadeItems);
+							System.out.println("[0] para Bebida \n[1] para Comida");
+							int tipoPedido = scan.nextInt();
+							Pedido novoPedido = CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoItem,tipoPedido,quantidadeItems);
 							listaPedidos.add(novoPedido);
 							System.out.println("Pedido enviado!");
 							System.out.println("Número do pedido:" + novoPedido.getIdPedido());
@@ -229,12 +224,14 @@ public class principal {
 						case 2:
 							System.out.println("Qual o número do pedido:");
 							Integer numPedidoBebida = scan.nextInt();
-							TotalPedidoBebida(listaPedidos, listaCardapioBebidas, numPedidoBebida);
+							total = TotalPedidoBebida(listaPedidos, listaCardapioBebidas, numPedidoBebida);
+							System.out.println("O total do pedido é: " + total);
 							break;
 						case 3:
 							System.out.println("Qual o número do pedido:");
 							Integer numPedido = scan.nextInt();
-							TotalPedidoComida(listaPedidos, listaCardapio, opcaoPedido);
+							total = TotalPedidoComida(listaPedidos, listaCardapio, opcaoPedido);
+							System.out.println("O total do pedido é: " + total);
 							break;
 						}
 			case 5:
@@ -275,23 +272,22 @@ public class principal {
 	}
 	
 	// Pedidos
-	public static Pedido CadastraPedido(List listaPedidos,Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato, Integer qtdItens) {
+	public static Pedido CadastraPedido(List listaPedidos,Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato,Integer tipoPedido, Integer qtdItens) {
 		// Implementar redução de estoque
 		Integer idPedido = listaPedidos.size() + 1;
-		return new Pedido(idPedido,numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
+		return new Pedido(idPedido,numeroMesa, idGarcom, cardapioCodPrato,tipoPedido, qtdItens);
 	}
-	public static void TotalPedidoComida(List<Pedido> listaPedido,List<Cardapio> listaCardapio, Integer idPedido) {
+	public static float TotalPedidoComida(List<Pedido> listaPedido,List<Cardapio> listaCardapio, Integer idPedido) {
 		Pedido pedido = listaPedido.get(idPedido-1);
 		Float vlrBebida = listaCardapio.get(pedido.getCardapioCodItem()-1).getprecoPrato();
 		Float totalPedido = pedido.getQuantidadeItem() + vlrBebida;
-		System.out.println("O total do pedido é: " + totalPedido);
+		return totalPedido;
 	}
-	public static void TotalPedidoBebida(List<Pedido> listaPedido,ArrayList<CardapioBebidas> listaCardapioBebidas, Integer idPedido) {
+	public static float TotalPedidoBebida(List<Pedido> listaPedido,ArrayList<CardapioBebidas> listaCardapioBebidas, Integer idPedido) {
 		Pedido pedido = listaPedido.get(idPedido-1);
 		Float vlrBebida = listaCardapioBebidas.get(pedido.getCardapioCodItem()-1).getprecoBebida();
 		Float totalPedido = pedido.getQuantidadeItem() + vlrBebida;
-		System.out.println("O total do pedido é: " + totalPedido);
-		
+		return totalPedido;
 	}
 	// Acompanhamento de vendas por funcionário
 	

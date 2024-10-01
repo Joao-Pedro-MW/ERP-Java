@@ -6,15 +6,18 @@ public class Pedido {
 	Integer idGarcom;
 	Integer cardapioCodItem;
 	Integer quantidadeItem;
+	Integer tipoPedido;
 	
 	
-	public Pedido(Integer idPedido, Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato, Integer quantidadePratos) {
+	public Pedido(Integer idPedido, Integer numeroMesa, Integer idGarcom, Integer cardapioCodPrato,Integer tipoPedido, Integer quantidadePratos) {
 		super();
 		this.idPedido = idPedido;
 		this.numeroMesa = numeroMesa;
 		this.idGarcom = idGarcom;
 		this.cardapioCodItem = cardapioCodPrato;
 		this.quantidadeItem = quantidadePratos;
+		// Tipo pedido 0, comida, 1, bebida
+		this.tipoPedido = tipoPedido;
 	}
 
 

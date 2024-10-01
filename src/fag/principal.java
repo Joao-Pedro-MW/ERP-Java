@@ -24,7 +24,7 @@ public class principal {
 						 + "[4] Gerenciar pedidos\n"
 						 + "[5] Extrair relatórios\n"
 						 + "[6] Sair\n"
-						 + "----------------------------zn");
+						 + "----------------------------");
 		Integer opcaoMenu = scan.nextInt();
 		
 		switch (opcaoMenu) {
@@ -96,8 +96,6 @@ public class principal {
 					}
 				break;
 			case 3:
-				// Gerenciar cardapio
-				// Implementar função para gerenciar o cardapio, como cadastrar itens e mudar a disponibilidade
 				// Opção de mudar status de cardapio ficou dentro das opções de pedido
 				System.out.println("Escolha uma opção que deseja:\n "
 				+ "[1]Cadastrar pratos "
@@ -235,20 +233,29 @@ public class principal {
 									break;
 								}
 					case 5:
-						// Extrair relatórios
-						// vendar por funcionario
-						System.out.println("Informe o ID do funcionário");
-						Integer idGarcom = scan.nextInt();
-						Float totalVendas = TotalVendasGarcomPorId(listaPedidos, listaCardapioBebidas, listaCardapio,idGarcom);
-						System.out.println("Total de vendas pelo funcionário informado é de: " + totalVendas);
-						
-						
-						// faturamento diário
-						System.out.println("Total de vendas no dia: " + TotalVendas(listaPedidos, listaCardapioBebidas, listaCardapio));
-						System.out.println();
-						// pagamento comissão
-						System.out.println("Bzzz");;
-						break;
+						System.out.println("[1] Vendas por garçom\n"
+								 + "[2] Vendas do dia\n"
+								 + "[3] Valores comissionados\n"
+								 + "----------------------------\n");
+						Integer opcaoPessoas = scan.nextInt();
+						switch(opcaoPessoas) {
+							case 1:
+									// vendas por funcionario
+									System.out.println("Informe o ID do funcionário");
+									Integer idGarcom = scan.nextInt();
+									Float totalVendas = TotalVendasGarcomPorId(listaPedidos, listaCardapioBebidas, listaCardapio,idGarcom);
+									System.out.println("Total de vendas pelo funcionário informado é de: " + totalVendas);
+							case 2:
+								// faturamento total
+								System.out.println("Total de vendas no dia: " + TotalVendas(listaPedidos, listaCardapioBebidas, listaCardapio));
+							case 3:
+								// pagamento comissão
+								totalVendasComissionadas(listaPedidos, listaCardapioBebidas, listaCardapio,listaFuncionarios);
+								break;
+							default:
+								System.out.println("Total de vendas no dia: " + TotalVendas(listaPedidos, listaCardapioBebidas, listaCardapio));
+								
+						}
 					case 6:
 						System.out.println("Você escolheu sair :)");
 						break;
@@ -320,6 +327,21 @@ public class principal {
 			}
 		}
 		return total;
+	}
+	
+	public static void totalVendasComissionadas(List<Pedido> listaPedidos,ArrayList<CardapioBebidas> listaCardapioBebidas,List<Cardapio> listaCardapio,List<Funcionario> listaFuncionarios) {
+		float totalVendas = 0;
+		Integer totalPedidos = 0;
+		for (Funcionario funcionario : listaFuncionarios) {
+			for (Pedido pedido : listaPedidos) {
+				if(pedido.getIdGarcom() == funcionario.getId()) {
+					totalPedidos ++;
+					totalVendas += TotalVendasGarcomPorId(listaPedidos, listaCardapioBebidas,listaCardapio,funcionario.getId());
+				}				
+			}
+			System.out.println("Total de comissão da pessoa " + funcionario.getNome() + " foi de " + (totalVendas*totalPedidos) / 100);
+			totalVendas = 0;
+		}
 	}
 	
 	// Fechamento de conta e faturamento

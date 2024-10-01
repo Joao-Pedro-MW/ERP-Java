@@ -16,11 +16,11 @@ public class Principal {
 		ArrayList<CardapioBebidas> listaCardapioBebidas = new ArrayList<CardapioBebidas>();
 		// Ainda vai ser implementado a parte de limitar acesso conforme o antigo principal_old.java
 		System.out.println("Olá, oque deseja fazer:");
-		System.out.println("[1] Gerenciar funcionários"
-						 + "[2] Gerenciar mesas"
-						 + "[3] Gerenciar cardapio"
-						 + "[4] Gerenciar pedidos"
-						 + "[5] Extrair relatórios"
+		System.out.println("[1] Gerenciar funcionários\n"
+						 + "[2] Gerenciar mesas\n"
+						 + "[3] Gerenciar cardapio\n"
+						 + "[4] Gerenciar pedidos\n"
+						 + "[5] Extrair relatórios\n"
 						 + "[6] Sair"
 						 + "----------------------------");
 		Integer opcaoMenu = scan.nextInt();
@@ -144,23 +144,33 @@ public class Principal {
 				scan.close();
 				break;
 			case 4:
-				System.out.println("[1] Cadastrar pedido"
-								 + "[2] Ver total");
-				Integer opcaoPedido = scan.nextInt();
-				switch(opcaoPedido) {
-					case 1:
-						System.out.print("Informe o número da mesa:");
-						int numeroMesa = scan.nextInt();
-						System.out.print("Informe seu ID:");
-						int idGarcom = scan.nextInt();
-						System.out.println("Informe o número do prato:");
-						int codigoPrato = scan.nextInt();
-						System.out.println("Informe a quantidade do prato:");
-						int quantidadeItems = scan.nextInt();
-						listaPedidos.add(CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoPrato,quantidadeItems));
-						System.out.println("Pedido enviado!");
-				break;
-					}
+				while(true) {
+					System.out.println("[1] Cadastrar pedido"
+							 + "[2] Ver total");
+			Integer opcaoPedido = scan.nextInt();
+					switch(opcaoPedido) {
+						case 1:
+							System.out.print("Informe o número da mesa:");
+							int numeroMesa = scan.nextInt();
+							System.out.print("Informe seu ID:");
+							int idGarcom = scan.nextInt();
+							System.out.println("Informe o número do prato:");
+							int codigoPrato = scan.nextInt();
+							System.out.println("Informe a quantidade do prato:");
+							int quantidadeItems = scan.nextInt();
+							Pedido novoPedido = CadastraPedido(listaPedidos,numeroMesa, idGarcom, codigoPrato,quantidadeItems);
+							listaPedidos.add(novoPedido);
+							
+							System.out.println("Pedido enviado!");
+							System.out.println("Número do pedido:" + novoPedido.getIdPedido());
+							break;
+						case 2:
+							System.out.println("Qual o número do pedido:");
+							Integer numeroPedido = scan.nextInt();
+							TotalPedido(listaPedidos,numeroPedido);
+							break;
+						}
+				}
 			case 5:
 				// Extrair relatórios
 				System.out.println("Bzzz");;
@@ -199,7 +209,9 @@ public class Principal {
 		return new Pedido(idPedido,numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
 	}
 	
-	public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
+	public static void TotalPedido(List listaPedido, Integer idPedido) {
+		Object pedido = listaPedido.get(idPedido-1);
+		
 		
 	}
 	// Acompanhamento de vendas por funcionário

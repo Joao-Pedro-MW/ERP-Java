@@ -268,7 +268,6 @@ public class principal {
 	}
 	
 	// Gerenciamento cardápio
-	public static Cardapio cadastroCardapio(ArrayList listaCardapio, String nomePrato, int codPrato, float precoPrato int dispPrato;)
 	
 	// Cadastro mesas
 	public static Mesa CadastraMesa(ArrayList listaMesas, String numeromesa, String capacidadepessoa, Integer disponibilidade) {

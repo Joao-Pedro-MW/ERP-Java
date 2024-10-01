@@ -21,23 +21,14 @@ public class principal {
 		
 		ArrayList<CardapioBebidas> listaCardapioBebidas = new ArrayList<CardapioBebidas>();
 
-		// Ainda vai ser implementado a parte de limitar acesso conforme o antigo principal_old.java
-<<<<<<< HEAD
 		System.out.println("Olá, oque deseja fazer:\n");
-=======
-		System.out.println("Olá, oque deseja fazer:");
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
 		System.out.println("[1] Gerenciar funcionários\n"
 						 + "[2] Gerenciar mesas\n"
 						 + "[3] Gerenciar cardapio\n"
 						 + "[4] Gerenciar pedidos\n"
 						 + "[5] Extrair relatórios\n"
-<<<<<<< HEAD
 						 + "[6] Sair\n"
-=======
-						 + "[6] Sair"
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
-						 + "----------------------------");
+						 + "----------------------------\n");
 		Integer opcaoMenu = scan.nextInt();
 		
 		switch (opcaoMenu) {
@@ -226,10 +217,8 @@ public class principal {
 				if (resposta.equals("nao")) {
 	
 				}
-				scan.close();
 				break;
 			case 4:
-<<<<<<< HEAD
 				System.out.println("[1] Cadastrar pedido"
 								 + "[2] Ver total");
 				Integer opcaoPedido = scan.nextInt();
@@ -251,7 +240,6 @@ public class principal {
 						System.out.println("Pedido enviado!");
 				break;
 					}
-=======
 				while(true) {
 					System.out.println("[1] Cadastrar pedido"
 							 + "[2] Ver total");
@@ -279,7 +267,6 @@ public class principal {
 							break;
 						}
 				}
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
 			case 5:
 				// Extrair relatórios
 				System.out.println("Bzzz");;
@@ -317,19 +304,8 @@ public class principal {
 		Integer idPedido = listaPedidos.size() + 1;
 		return new Pedido(idPedido,numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
 	}
-	
-<<<<<<< HEAD
-
-	//public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
-		//Double total = 
-	//}
-
-	public static void TotalPedido(Integer numeroMesa,Integer idGarcom, Integer cardapioCodPrato) {
-=======
-	public static void TotalPedido(List listaPedido, Integer idPedido) {
-		Object pedido = listaPedido.get(idPedido-1);
-		
->>>>>>> fbb921ab0d3fa2062d7a278d43ac094646d70050
+	public static void TotalPedido(List<Pedido> listaPedido, Integer idPedido) {
+		Pedido pedido = listaPedido.get(idPedido-1);
 		
 	}
 	// Acompanhamento de vendas por funcionário

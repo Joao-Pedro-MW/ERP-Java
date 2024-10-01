@@ -59,7 +59,7 @@ public class principal {
 					if(escolha == 3 ) {
 						System.out.println("Insira o nome do funcionario corretamente");
 						String nome = scan.next();
-						String removenome;
+						String removenome = "";
 						boolean encontrado = false;
 
 						
@@ -119,7 +119,6 @@ public class principal {
 						float precoBebida = scan.nextFloat();
 						System.out.println("Escreva a disponibilidade da Bebida:");
 						int dispBebida = scan.nextInt();
-		
 						CardapioBebidas novaBeb = new CardapioBebidas(nomeBebida, codBebida, precoBebida, dispBebida);
 						listaCardapioBebidas.add(novaBeb);
 					}
@@ -202,7 +201,7 @@ public class principal {
 						case 1:
 							System.out.print("Informe o número da mesa:");
 							int numeroMesa = scan.nextInt();
-							System.out.print("Informe seu ID:");
+							System.out.print("Informe seu ID de garçom:");
 							int idGarcom = scan.nextInt();
 							System.out.println("Informe o número do prato:");
 							int codigoItem = scan.nextInt();
@@ -226,13 +225,19 @@ public class principal {
 						}
 			case 5:
 				// Extrair relatórios
+				// vendar por funcionario
+				
+				// faturamento diário
+				
+				// pagamento comissão
 				System.out.println("Bzzz");;
 				break;
 			case 6:
 				System.out.println("Você escolheu sair :)");
-				
+				break;
 			default:
 				System.out.println("Ops, esta opção não existe!");
+				break;
 		}
 		
 	}

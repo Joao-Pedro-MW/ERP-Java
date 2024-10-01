@@ -304,8 +304,14 @@ public class principal {
 		Integer idPedido = listaPedidos.size() + 1;
 		return new Pedido(idPedido,numeroMesa, idGarcom, cardapioCodPrato, qtdItens);
 	}
-	public static void TotalPedido(List<Pedido> listaPedido, Integer idPedido) {
+	public static void TotalPedidoComida(List<Pedido> listaPedido,List<Cardapio> listaCardapio, Integer idPedido) {
 		Pedido pedido = listaPedido.get(idPedido-1);
+		Integer totalPedido = pedido.getCardapioCodItem() * listaCardapio.indexOf(pedido.getCardapioCodItem());
+		System.out.println("Total do pedido: " + totalPedido);
+	}
+	public static void TotalPedidoBebida(List<Pedido> listaPedido,ArrayList<CardapioBebidas> listaCardapioBebidas, Integer idPedido) {
+		Pedido pedido = listaPedido.get(idPedido-1);
+		Integer totalPedido = pedido.getCardapioCodItem() * listaCardapioBebidas.indexOf(pedido.getCardapioCodItem());
 		
 	}
 	// Acompanhamento de vendas por funcionário

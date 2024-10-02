@@ -7,8 +7,8 @@ public class Mesa {
     private Boolean disponibilidade;
 
     public Mesa(String numeromesa, String capacidadepessoa, Integer disponibilidade) {
-        this.numeromesa = "";
-        this.capacidadepessoa = "";
+        this.numeromesa = numeromesa;
+        this.capacidadepessoa = capacidadepessoa;
         
 		switch (disponibilidade) {
 		case 1:
